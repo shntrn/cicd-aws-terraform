@@ -8,12 +8,15 @@ phases:
       - sudo apt-get update && sudo apt-get install terraform
   pre_build:
     commands:
+      - cd Terraform/
       - terraform init
   build:
     comannds:
+      - cd Terraform/
       - terraform $TF_COMMAND -auto-approve    
   post_build:
     commands:
+      - cd Terraform/
       - echo terraform $TF_COMMAND completed on `date`
       - terraform output
       
