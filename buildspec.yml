@@ -1,0 +1,19 @@
+version: 0.2
+
+pgases:
+  install:
+    commands:
+      - "curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -"
+      - "sudo apt-add-repository 'deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main'"
+      - "sudo apt-get update && sudo apt-get install terraform"
+  pre_build:
+    commands:
+      - terraform init
+  build:
+    comannds:
+      - terraform $TF_COMMAND -auto-approve    
+  post_builds:
+    commands:
+      - echo terraform $TF_COMMAND completed on `date`
+      - terraform output
+      
