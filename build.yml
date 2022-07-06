@@ -29,9 +29,9 @@ artifacts:
   secondary-artifacts:
     artifact1:
       files:
-        - lib/client/*
-      name: builds/client/$CODEBUILD_BUILD_NUMBER
+        - 'lib/client/**'
+      name: builds/client/
     artifact2:
       files:
         - '**/*'
-      name: builds/server/$CODEBUILD_BUILD_NUMBER
+      name: builds/server/
