@@ -1,6 +1,5 @@
 variable "backend_name" {
   type        = string
-  default = "nodejs-chess-backend"
   description = "name for beanstalk"
 }
 
