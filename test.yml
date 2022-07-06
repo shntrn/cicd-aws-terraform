@@ -8,10 +8,11 @@ phases:
   build:
     commands:
       - echo Testing build...
+      - rm -rf node_modules
       - npm install
       - npm run test
   
   post_build:
     commands:
-      - echo Tests succesfyulle passed on `date`
+      - echo Tests passed on `date`
 
