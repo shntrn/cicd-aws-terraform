@@ -7,8 +7,8 @@ phases:
       nodejs: 14
   build:
     commands:
-      - ls -la
       - echo Testing build...
+      - npm install
       - npm run test
   
   post_build:
