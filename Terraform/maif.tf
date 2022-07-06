@@ -19,6 +19,7 @@ module "documentdb" {
 module "beanstalk" {
     source = "./beanstalk"
     backend_name = var.backend_name
+    backend_env_name = var.backend_env_name
     depends_on = [module.documentdb, module.vpc]
     db_endpoint = "${module.documentdb.aws_docdb_cluster}"
     db_user = "${module.documentdb.aws_docdb_cluster_user}"

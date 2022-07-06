@@ -24,11 +24,12 @@ phases:
 # Do not use recursively include artifacts from node_modules directory as it will include unnecessary packages 
 # used only for building and testing.
 artifacts:
-  files:
-    - '**/*'
-  name: builds/server/$CODEBUILD_BUILD_NUMBER
   secondary-artifacts:
   artifact1:
     files:
       - 'lib/client'
     name: builds/client/$CODEBUILD_BUILD_NUMBER
+  artifact2:
+    files:
+      - '**/*'
+    name: builds/server/$CODEBUILD_BUILD_NUMBER
