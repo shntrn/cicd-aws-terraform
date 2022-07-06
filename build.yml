@@ -29,7 +29,7 @@ artifacts:
   secondary-artifacts:
     artifact1:
       files:
-        - 'lib/client'
+        - lib/client/*
       name: builds/client/$CODEBUILD_BUILD_NUMBER
     artifact2:
       files:
