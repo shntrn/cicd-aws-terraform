@@ -1,13 +1,16 @@
+#S3 bucket module for static website
 module "staticwebsite" {
     source = "./staticwebsite"
     bucket_name = var.s3_bucket_name
 
 }
 
+#VPC module
 module "vpc" {
     source = "./vpc"
 }
 
+#DocumentDB module for DB
 module "documentdb" {
     source = "./documentdb"
     depends_on = [module.vpc]
@@ -16,6 +19,7 @@ module "documentdb" {
     vpc_private_azs = "${module.vpc.output_vpc_subnet_azs}"
 }
 
+#Beanstalk module for backend
 module "beanstalk" {
     source = "./beanstalk"
     backend_name = var.backend_name
