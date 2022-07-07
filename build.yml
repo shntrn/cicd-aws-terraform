@@ -30,6 +30,7 @@ artifacts:
     artifact1:
       files:
         - 'lib/client/**/*'
+      discard-paths: yes
       name: builds/client/
     artifact2:
       files:
