@@ -29,7 +29,7 @@ artifacts:
   secondary-artifacts:
     artifact1:
       files:
-        - 'lib/client/**/*'
+        - '**/*'
       base-directory: 'lib/client'
       name: builds/client/
     artifact2:
