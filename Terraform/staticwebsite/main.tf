@@ -5,11 +5,14 @@ resource "aws_s3_bucket" "static" {
     }
     policy = templatefile("./templates/s3-policy.json", { bucket = "${var.bucket_name}" })
 
+    tags = merge(var.common_tags, { ServiceType = "S3"})
+
 }
 
 resource "aws_s3_bucket_acl" "static_acl" {
   bucket = aws_s3_bucket.static.id
   acl    = "public-read"
+
 }
 
 
@@ -22,14 +25,3 @@ resource "aws_s3_bucket_website_configuration" "static" {
   }
 }
 
-output "srorage_arn" {
-    value = aws_s3_bucket.static.arn
-}
-
-output "website_domain" {
-    value = aws_s3_bucket_website_configuration.static.website_domain
-}
-
-output "website_endpoint" {
-    value = aws_s3_bucket_website_configuration.static.website_endpoint
-}

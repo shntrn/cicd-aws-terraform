@@ -1,6 +1,8 @@
 resource "aws_elastic_beanstalk_application" "backend" {
   name        = var.backend_name
   description = "resource for backend"
+
+  tags = merge(var.common_tags, { ServiceType = "BeanstalkApplication"})
   
 }
 
@@ -56,6 +58,8 @@ resource "aws_elastic_beanstalk_environment" "backend_env" {
     name      = "ELBScheme"
     value     = "internet facing"
   }
+
+  tags = merge(var.common_tags, { ServiceType = "BeanstalkApplication"})
   
 }
 

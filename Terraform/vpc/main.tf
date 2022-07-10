@@ -4,6 +4,8 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames  = true
   enable_dns_support = true
 
+  tags = merge(var.common_tags, { ServiceType = "VPC"})
+
 }
 
 resource "aws_subnet" "private" {
@@ -17,7 +19,7 @@ resource "aws_subnet" "private" {
 
     tags = {
         Subnet = "${each.key}-${each.value}"
-    }
+    }    
 
 }
 
@@ -29,10 +31,7 @@ resource "aws_subnet" "public" {
  
   # 254 hosts each
   cidr_block = cidrsubnet(aws_vpc.main.cidr_block, 8, each.value) 
-  
-  tags = {
-        Subnet = "${each.key}-${each.value}"
-    }
+    
   
 }
 

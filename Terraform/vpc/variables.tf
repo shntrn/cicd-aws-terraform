@@ -38,3 +38,12 @@ variable "db_port" {
   default = 27017
   description = "Port of DocumentDB for security group"
 }
+
+variable "common_tags" {
+  type = map(any)
+  default = {
+    Project = "NodeJS Chess"
+    Owner   = "Egor Shantarin"
+    Type = "Network"
+  }
+}

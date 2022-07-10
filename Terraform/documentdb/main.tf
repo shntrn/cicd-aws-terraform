@@ -5,6 +5,9 @@ module "vpc" {
 resource "aws_docdb_subnet_group" "service" {
   name       = "docdb_subnet-${var.cluster_identifier}"
   subnet_ids = var.vpc_private_ids
+
+  tags = merge(var.common_tags, { ServiceType = "DocDBSubnetGroup"})
+
 }
 
 resource "aws_docdb_cluster" "docdb" {
@@ -19,6 +22,9 @@ resource "aws_docdb_cluster" "docdb" {
   vpc_security_group_ids = [var.vpc_sg_id]
   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.service.name
 
+  tags = merge(var.common_tags, { ServiceType = "DocDBCluster"})
+
+
 }
 
 resource "aws_docdb_cluster_instance" "docdb" {
@@ -26,6 +32,8 @@ resource "aws_docdb_cluster_instance" "docdb" {
   identifier         = "tf-${var.cluster_identifier}-${count.index}"
   cluster_identifier = aws_docdb_cluster.docdb.id
   instance_class     = var.docdb_instance_class
+
+  tags = merge(var.common_tags, { ServiceType = "DocDBClusterInstance"})
 }
 
 resource "aws_docdb_cluster_parameter_group" "service" {
@@ -36,4 +44,7 @@ resource "aws_docdb_cluster_parameter_group" "service" {
     name  = "tls"
     value = "disabled"
   }
+
+  tags = merge(var.common_tags, { ServiceType = "DocDBClusterParameter"})
+
 }

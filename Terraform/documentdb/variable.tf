@@ -50,3 +50,12 @@ variable "docdb_instance_class" {
 variable "vpc_sg_id" {}
 variable "vpc_private_ids" {}
 variable "vpc_private_azs" {}
+
+variable "common_tags" {
+  type = map(any)
+  default = {
+    Project = "NodeJS Chess"
+    Owner   = "Egor Shantarin"
+    Type = "Database"
+  }
+}
