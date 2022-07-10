@@ -15,5 +15,5 @@ output "aws_docdb_cluster" {
 }
 
 output "beanstalk_endpoint" {
-    value = module.beanstalk.beanstalk_endpoint
+    value = module.beanstalk.beanstalk_cname
 }
