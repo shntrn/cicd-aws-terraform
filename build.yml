@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    API_URL: 'http://nodejschess-env-1.eba-euycrek9.us-east-1.elasticbeanstalk.com'
+    API_URL: 'http://nodejs-chess-env.eba-pmeywutx.eu-central-1.elasticbeanstalk.com'
 
 phases:
   install:
