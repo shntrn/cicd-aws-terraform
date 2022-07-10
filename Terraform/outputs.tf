@@ -13,3 +13,7 @@ output "cidr_public" {
 output "aws_docdb_cluster" {
     value = module.documentdb.aws_docdb_cluster
 }
+
+output "beanstalk_endpoint" {
+    value = module.beanstalk.beanstalk_endpoint
+}

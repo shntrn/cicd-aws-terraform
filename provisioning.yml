@@ -5,6 +5,8 @@ env:
   variables:
     TF_VAR_backend_name: ${backend_name} #nodejs-chess-backend
     TF_VAR_s3_bucket_name: ${s3_bucket_name} #nodejs-chess-website
+  exported-variables:
+    - API_URL
     
 
 phases:
@@ -32,4 +34,5 @@ phases:
     commands:
       - echo terraform $TF_COMMAND completed on `date`
       - terraform output
+      - export API_URL=$(terraform output -raw beanstalk_endpoint)
       
