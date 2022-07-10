@@ -1,8 +1,6 @@
 resource "aws_s3_bucket" "static" {
     bucket = var.bucket_name
-    tags = {
-        Name = "StaticWeb Site"
-    }
+
     policy = templatefile("./templates/s3-policy.json", { bucket = "${var.bucket_name}" })
 
     tags = merge(var.common_tags, { ServiceType = "S3"})
