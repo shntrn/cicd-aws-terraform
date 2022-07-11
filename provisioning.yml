@@ -4,6 +4,7 @@ version: 0.2
 env:
   variables:
     TF_VAR_backend_name: ${backend_name} #nodejs-chess-backend
+    TF_VAR_backend_env_name: ${nodejs-chess-env} #nodejs-chess-env
     TF_VAR_s3_bucket_name: ${s3_bucket_name} #nodejs-chess-website
     TF_COMMAND: ${TF_COMMAND}
   exported-variables:
