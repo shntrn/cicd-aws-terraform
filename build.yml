@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    API_URL: 'http://nodejs-chess-env.eba-pmeywutx.eu-central-1.elasticbeanstalk.com'
+    API_URL: 'http://%API_URL_HERE%'
 
 phases:
   install:
