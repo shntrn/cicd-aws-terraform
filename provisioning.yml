@@ -27,7 +27,7 @@ phases:
       
   # Provisioning stage
   build:
-    comannds:
+    commands:
       - terraform $TF_COMMAND -auto-approve    
       
   # Output variables
