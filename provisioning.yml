@@ -9,6 +9,7 @@ env:
     TF_COMMAND: ${TF_COMMAND}
   exported-variables:
     - API_URL
+    - FRONT_END_URL
     
 
 phases:
@@ -37,4 +38,5 @@ phases:
       - echo terraform $TF_COMMAND completed on `date`
       - terraform output
       - export API_URL=$(terraform output -raw beanstalk_endpoint)
+      - export FRONT_END_URL=$(terraform output -raw website_endpoint)
       
