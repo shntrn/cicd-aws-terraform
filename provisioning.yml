@@ -33,6 +33,7 @@ phases:
       - terraform $TF_COMMAND -auto-approve    
       
   # Output variables
+  # some comment
   post_build:
     commands:
       - echo terraform $TF_COMMAND completed on `date`
