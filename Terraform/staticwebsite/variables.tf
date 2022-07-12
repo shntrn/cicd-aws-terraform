@@ -8,6 +8,6 @@ variable "common_tags" {
   default = {
     Project = "NodeJS Chess"
     Owner   = "Egor Shantarin"
-    Type = "FrontEnd"
+    Type    = "FrontEnd"
   }
 }
